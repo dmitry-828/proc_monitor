@@ -29,7 +29,7 @@ def monitor_once(seen):
         current.add((pid, create_time))
         items.append((create_time, proc))
 
-    items.sort()
+    items.sort(key=lambda item: item[0])
 
     for create_time, proc in items:
         try:
