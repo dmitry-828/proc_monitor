@@ -1,11 +1,7 @@
-import psutil
-import time
+from db import init_db
+from monitor import monitor_loop
 
-print("Монитор процессов запущен. Нажми Ctrl+C для выхода.\n")
 
-while True:
-    for proc in psutil.process_iter(['pid', 'name']):
-        info = proc.info
-        print(f"PID: {info['pid']:>6} | Имя: {info['name']}")
-    print("-" * 40)
-    time.sleep(3)
+if __name__ == "__main__":
+    init_db()
+    monitor_loop()
